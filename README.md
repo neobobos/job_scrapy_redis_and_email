@@ -1,13 +1,10 @@
 # 51job_scrapy_redis_mysql_toemail
-#### 功能：根据批量关键词爬取51job招聘信息，采用scrapy_redis+mysql+twisted异步存储，邮件及时通知。
-
 ###### 提前安装：python 3.6+ screapy_redis redis mysql twisted pymysql
 
-
+#### 功能：根据批量关键词爬取51job招聘信息，采用scrapy_redis+mysql+twisted异步存储，邮件及时通知。
 #### 采用关键字或批量（mysql table）爬取，分布式获取，分代理与无代理双模式。（目标量大必须采用代理模式）
 
 ### 进入文件根目录运行： python run_email.py
-
 
 #### [job_51job_url.py]核心配置参数
 ```
