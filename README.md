@@ -1,4 +1,4 @@
-### 51job_scrapy_redis_mysql_toemail
+### job_scrapy_redis_and_email for 51job website
 ###### 提前安装：python 3.6+ screapy_redis redis mysql twisted pymysql
 
 ##### 功能：根据批量关键词爬取51job招聘信息，采用scrapy_redis+mysql+twisted异步存储，邮件及时通知。
