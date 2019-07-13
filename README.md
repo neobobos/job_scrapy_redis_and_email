@@ -1,11 +1,11 @@
-# job_scrapy_redis_mysql_toemail
+# 51job_scrapy_redis_mysql_toemail
 
 #### 采用关键字或批量（mysql table）爬取，分布式获取，分代理与无代理双模式。（目标量大必须采用代理模式）
 
-### 运行： python run_email.py
+### 进入文件根目录运行： python run_email.py
 
 
-### pur_url_redis(mysql_table, REDISKEY,spider_name)
+#### [job_51job_url.py]核心配置参数
 ```
 mysql_table = 'job_company'#要搜索的公司名称，提取自mysql表
 mysql_resuts = 'job_51job' #保存爬取结果的表
@@ -20,17 +20,16 @@ myredis.delete(spider_name + ":dupefilter")
 myredis.delete(spider_name + ":requests")
 
 ```
-###### run_mail.py run函数说明
+###### [run_mail.py]下函数run说明：
 ```
-    def run(web=True,email_=True): #web 默认开启网络爬虫，email_ True默认爬取完毕，发送邮件
-        if web:
-            os.system("cd e:/job51-spider-master && python3 job_51job_url.py") #e:/job51-spider-master为爬虫文件夹路径，需修改
-        if email_:
-            txt = get_data_from_db()
-            print(txt)
-            email_qq(txt)
-
-    run(web=True,email_=True)
+def run(web=True,email_=True): #web 默认开启网络爬虫，email_ True默认爬取完毕，发送邮件
+    if web:
+        os.system("cd e:/job51-spider-master && python3 job_51job_url.py") #e:/job51-spider-master为爬虫文件夹路径，需修改
+    if email_:
+        txt = get_data_from_db()
+        print(txt)
+        email_qq(txt)
+run(web=True,email_=True)
 ```
 
 ### 爬取关键字定制：
