@@ -13,19 +13,19 @@ mysql_resuts = 'job_51job' #保存爬取结果的表
 redis_table = mysql_resuts #redis结果去重key
 REDISKEY = Job_51job_Spider.redis_key #redis url key
 spider_name = Job_51job_Spider.name #爬虫名称
-
-# 判断当前是否有残余的redis url list
+# redis 预处理
 myredis.delete(REDISKEY)
 myredis.delete(redis_table)
 myredis.delete(spider_name + ":dupefilter")
 myredis.delete(spider_name + ":requests")
-
 ```
 #### [run_mail.py]下函数run说明：
+*e:/job51-spider-master为爬虫文件夹路径，需修改*
+*web 默认开启网络爬虫，email_ True默认爬取完毕，发送邮件*
 ```
-def run(web=True,email_=True): #web 默认开启网络爬虫，email_ True默认爬取完毕，发送邮件
+def run(web=True,email_=True): 
     if web:
-        os.system("cd e:/job51-spider-master && python3 job_51job_url.py") #e:/job51-spider-master为爬虫文件夹路径，需修改
+        os.system("cd e:/job51-spider-master && python3 job_51job_url.py") 
     if email_:
         txt = get_data_from_db()
         print(txt)
@@ -34,14 +34,14 @@ run(web=True,email_=True)
 ```
 
 #### 爬取关键字定制：
+*添加 ‘爬虫’两字为关键字，可以自定义设置*
 ```
-#添加 ‘爬虫’两字为关键字，可以自定义设置
 myredis.sadd(REDISKEY,"https://search.51job.com/list/040000,000000,0000,00,0,08,爬虫,2,1.html?lang=c&stype=1&postchannel=0000&workyear=99&cotype=99&degreefrom=99&jobterm=01")
 ```
 #### 大规模分布式爬取：
-*关键词在mysql_table设置，加载URL到redis，可以大规模批量爬取*
+*关键词在mysql_table设置，加载URL到redis，可以大规模批量爬取;参数分别为搜索关键字sql表，redis的start_urls ，爬虫名*
 ```
-pur_url_redis(mysql_table, REDISKEY,spider_name) #参数分别为搜索关键字sql表，redis的start_urls ，爬虫名
+pur_url_redis(mysql_table, REDISKEY,spider_name) 
 ```
 #### mysql redis 配置,运行前必须设置数据库与redis
 ```
