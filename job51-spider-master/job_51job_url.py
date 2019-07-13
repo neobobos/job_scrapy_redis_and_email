@@ -85,8 +85,6 @@ def pur_url_redis(mysql_table,REDISKEY,spider_name):
             break
 
 
-
-
 if __name__=="__main__":
     mysql_table = 'job_company'#要搜索的公司名称，提取自mysql表
     mysql_resuts = 'job_51job' #保存爬取结果的表
@@ -108,4 +106,4 @@ if __name__=="__main__":
     #从此文件启动爬虫，也可以在start文件夹下启动
     start_path=os.path.abspath(os.path.abspath(basepath+'/start/'))
     sys.path.append(start_path)
-    os.system("cd {} && python3  job_51job_start.py".format(start_path))
+    os.system("cd {} && python  job_51job_start.py".format(start_path))
