@@ -1,5 +1,5 @@
 ### job_scrapy_redis_and_email for 51job website
-#### 提前安装：python 3.6+ screapy_redis redis mysql twisted pymysql
+#### 提前安装：python 3.6+ scrapy_redis redis mysql twisted pymysql lxml swtplib
 
 #### 功能：根据批量关键词爬取51job招聘信息，采用scrapy_redis+mysql+twisted异步存储，邮件及时通知。
 #### 采用关键字或批量（mysql table）爬取，分布式获取，分代理与无代理双模式。（目标量大必须采用代理模式）
@@ -58,3 +58,5 @@ REDIS_PWD='' #无密码模式
 REDIS_PORT=6379
 REDIS_DB=10
 ```
+
+#### 鸣谢：#https://www.cnblogs.com/elroye/p/8041821.html elroye， wxing
