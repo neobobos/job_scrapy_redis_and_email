@@ -1,0 +1,8 @@
+scrapy_redis
+twisted
+pymysql
+redis
+pyredis
+smtplib
+lxml
+faker
